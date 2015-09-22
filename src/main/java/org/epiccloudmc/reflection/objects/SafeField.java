@@ -24,7 +24,7 @@ public class SafeField {
       if (Validate.isNull(field)) {
         Loggers.warn("Trying to write to a field with a null value may cause errors.");
       }
-      field.set(object.getObject(), value);
+      field.set(object.getInternalObject(), value);
     } catch (Exception exception) {
       Loggers.severe("An error occured whilst attempting to write to field: " + field.getName(),
           exception);
@@ -36,7 +36,7 @@ public class SafeField {
       if (Validate.isNull(field)) {
         Loggers.warn("Trying to write to a field with a null value may cause errors.");
       }
-      return SafeObject.create(field.get(object.getObject()));
+      return SafeObject.create(field.get(object.getInternalObject()), false);
     } catch (Exception exception) {
       Loggers.severe("An error occured whilst attempting to read field: " + field.getName(),
           exception);

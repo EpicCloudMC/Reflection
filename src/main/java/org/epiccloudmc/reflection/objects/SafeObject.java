@@ -17,7 +17,7 @@ public class SafeObject {
     return clazz;
   }
 
-  public Object getObject() {
+  public Object getInternalObject() {
     return object;
   }
 
@@ -34,7 +34,11 @@ public class SafeObject {
   }
 
   public static SafeObject create(Object value) {
-    if (Validate.isNull(value)) {
+    return create(value, true);
+  }
+
+  public static SafeObject create(Object value, Boolean checkNull) {
+    if (checkNull && Validate.isNull(value)) {
       Loggers.warn("Trying to create a SafeObject with a null value may cause errors.");
     }
     return new SafeObject(new SafeClass(value.getClass()), value);

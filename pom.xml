@@ -32,7 +32,7 @@
 				<configuration>
 					<message>Maven artifacts for ${project.version}</message>
 					<noJekyll>true</noJekyll>
-					<outputDirectory>${project.build.directory}/mvn-repo</outputDirectory>
+					<outputDirectory>${project.build.directory}/maven</outputDirectory>
 					<branch>refs/heads/maven</branch>
 					<includes>
 						<include>**/*</include>
